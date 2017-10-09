@@ -1,5 +1,8 @@
 # in movies_controller.rb
-def create
-  @movie = Movie.create!(params[:movie])
-  redirect_to movies_path
+
+ #@movie = Movie.create!(params[:movie]) #old way
+    @movie = Movie.create!(movie_params)  # new way
+    flash[:notice] = "#{@movie.title} was successfully created."
+    redirect_to movies_path
+
 end
